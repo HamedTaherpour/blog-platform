@@ -2,6 +2,7 @@ import React from 'react'
 import { render, screen, fireEvent, waitFor } from '@/__tests__/utils/test-utils'
 import { AuthProvider, useAuth } from '../auth-context'
 import { mockUser } from '@/__tests__/utils/test-utils'
+import { AuthService } from '@/services'
 
 // Mock the AuthService
 jest.mock('@/services', () => ({
@@ -13,7 +14,7 @@ jest.mock('@/services', () => ({
   },
 }))
 
-const mockAuthService = require('@/services').AuthService
+const mockAuthService = jest.mocked(AuthService)
 
 // Test component to access context
 const TestComponent = () => {

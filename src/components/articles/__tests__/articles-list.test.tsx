@@ -1,14 +1,15 @@
 import React from 'react'
-import { render, screen, waitFor } from '@/__tests__/utils/test-utils'
+import { render, screen } from '@/__tests__/utils/test-utils'
 import ArticlesList from '../articles-list'
 import { mockArticlesResponse } from '@/__tests__/utils/test-utils'
+import { useArticles } from '@/hooks'
 
 // Mock the useArticles hook
 jest.mock('@/hooks', () => ({
   useArticles: jest.fn(),
 }))
 
-const mockUseArticles = jest.mocked(require('@/hooks').useArticles)
+const mockUseArticles = jest.mocked(useArticles)
 
 describe('ArticlesList', () => {
   beforeEach(() => {

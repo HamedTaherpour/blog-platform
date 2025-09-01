@@ -57,7 +57,7 @@ export * from '@testing-library/react'
 export { customRender as render }
 
 // Helper function to create mock API responses
-export const createMockApiResponse = <T>(data: T, success = true) => {
+export const createMockApiResponse = <T,>(data: T, success = true) => {
   if (success) {
     return Promise.resolve(data)
   }
@@ -81,7 +81,7 @@ export const mockLocalStorage = {
 }
 
 // Helper function to mock fetch
-export const mockFetch = (response: any, ok = true) => {
+export const mockFetch = (response: unknown, ok = true) => {
   return jest.fn().mockImplementation(() =>
     Promise.resolve({
       ok,

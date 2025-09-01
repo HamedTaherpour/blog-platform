@@ -1,5 +1,6 @@
 import { ArticlesService } from '../articles'
 import { mockArticlesResponse, mockArticle } from '@/__tests__/utils/test-utils'
+import { apiClient } from '@/lib/api-client'
 
 // Mock the apiClient
 jest.mock('@/lib/api-client', () => ({
@@ -11,7 +12,7 @@ jest.mock('@/lib/api-client', () => ({
   },
 }))
 
-const mockApiClient = require('@/lib/api-client').apiClient
+const mockApiClient = jest.mocked(apiClient)
 
 describe('ArticlesService', () => {
   beforeEach(() => {
