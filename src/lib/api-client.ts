@@ -29,9 +29,9 @@ class ApiClient {
     options: RequestOptions = {}
   ): Promise<T> {
     const { token, ...fetchOptions } = options;
-    
+      
     // Handle both absolute and relative URLs
-    const url = `${this.baseUrl}${endpoint.startsWith('/') ? endpoint : `/${endpoint}`}`;
+    const url = `${this.baseUrl}${endpoint}`;
     const headers: HeadersInit = {
       'Content-Type': 'application/json',
       'X-Requested-With': 'XMLHttpRequest',
